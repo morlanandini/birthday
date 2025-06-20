@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happie Birthday!</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe0ec, #e0f7fa);
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ff4081;
+      margin-top: 100px;
+      animation: bounce 1s infinite;
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #333;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background: #ffca28;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ffd54f;
+    }
+
+    #secret {
+      display: none;
+      font-size: 1.4em;
+      margin-top: 30px;
+      color: #6a1b9a;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4081;
+      animation: fall linear infinite;
+      opacity: 0.8;
+      border-radius: 50%;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happie Birthday, Love! 🎉</h1>
+  <p>To the coolest full stack dev in the world 💻💙</p>
+  <button onclick="showLove()">Click Me 💌</button>
+  <p id="secret">You debug my life like a pro. Love you 3000 💖</p>
+
+  <script>
+    function showLove() {
+      document.getElementById("secret").style.display = "block";
+    }
+
+    // Confetti animation
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      confetti.style.top = "-" + Math.random() * 20 + "vh";
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
